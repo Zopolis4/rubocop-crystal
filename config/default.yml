@@ -4,4 +4,3 @@ AllCops:
 Crystal/FileExtension:
   Description: 'This cop renames files ending in `.rb` to `.cr`.'
   Enabled: true
-  VersionAdded: '0.0.1'
