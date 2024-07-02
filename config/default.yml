@@ -4,3 +4,14 @@ AllCops:
 Crystal/FileExtension:
   Description: 'This cop renames files ending in `.rb` to `.cr`.'
   Enabled: true
+
+Crystal/InterpolationInSingleQuotes:
+  Description: "This cop uses %q in place of ' if the enclosed string would be affected by interpolation."
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: double_quotes
+
+Style/MethodDefParentheses:
+  Enabled: true
