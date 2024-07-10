@@ -9,6 +9,10 @@ Crystal/InterpolationInSingleQuotes:
   Description: "This cop uses %q in place of ' if the enclosed string would be affected by interpolation."
   Enabled: false
 
+Crystal/RequireRelative:
+  Description: 'This cop replaces require_relative with require while maintaining behavior.'
+  Enabled: true
+
 Style/StringLiterals:
   Enabled: true
   EnforcedStyle: double_quotes
