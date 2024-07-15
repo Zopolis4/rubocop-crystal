@@ -12,6 +12,8 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.1.2'
+      - name: Run tests (Ruby)
+        run: ruby test/string.rb
       - name: Install Rubocop
         run: gem install rubocop
       - name: Build and install rubocop-crystal
@@ -20,5 +22,5 @@ jobs:
           gem install rubocop-crystal
       - name: Convert test files
         run: rubocop --require rubocop-crystal --fail-level fatal -A test
-      - name: Run string tests
+      - name: Run tests (Crystal)
         run: crystal run test/string.cr
