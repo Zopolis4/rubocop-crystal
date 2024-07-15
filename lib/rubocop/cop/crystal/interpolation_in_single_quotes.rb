@@ -26,8 +26,6 @@ module RuboCop
           return if node == parse('"' + node.source[1..-2] + '"').ast
 
           add_offense(node) do |corrector|
-            # FIXME: This produces invalid syntax in cases such as "foo"'bar', resulting in "foo"%q(bar).
-            # Those cases should be covered by Lint/ImplicitStringConcatenation, but it doesn't support autocorrect.
             corrector.replace(node, '%q(' + node.source[1..-2] + ')')
           end
         end
