@@ -1,0 +1,24 @@
+name: Test
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download source
+        uses: actions/checkout@v4
+      - name: Install Crystal
+        uses: crystal-lang/install-crystal@v1
+      - name: Install Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1.2'
+      - name: Install Rubocop
+        run: gem install rubocop
+      - name: Build and install rubocop-crystal
+        run: |
+          gem build rubocop-crystal
+          gem install rubocop-crystal
+      - name: Convert test files
+        run: rubocop --require rubocop-crystal --fail-level fatal -A test
+      - name: Run string tests
+        run: crystal run test/string.cr
