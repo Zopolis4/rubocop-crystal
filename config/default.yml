@@ -16,6 +16,9 @@ Crystal/RequireRelative:
 Lint/ImplicitStringConcatenation:
   Enabled: true
 
+Style/BlockComments:
+  Enforced: true
+
 Style/StringLiterals:
   Enabled: true
   EnforcedStyle: double_quotes
