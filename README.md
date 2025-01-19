@@ -40,3 +40,7 @@ gem install rubocop-crystal
 ```
 rubocop --require rubocop-crystal
 ```
+
+Note that there are some differences between Ruby and Crystal that can be automatically resolved, while some (at least for now) require manual intervention.
+
+If you wish to only process the autocorrectable offenses, add `--disable-uncorrectable`, while reporting only the offenses requiring manual intervention is waiting on rubocop/rubocop#13275.
