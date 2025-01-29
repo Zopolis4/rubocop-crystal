@@ -23,9 +23,9 @@ Lint/ImplicitStringConcatenation:
 Style/BlockComments:
   Enabled: true
 
+Style/MethodDefParentheses:
+  Enabled: true
+
 Style/StringLiterals:
   Enabled: true
   EnforcedStyle: double_quotes
-
-Style/MethodDefParentheses:
-  Enabled: true
