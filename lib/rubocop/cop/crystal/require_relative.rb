@@ -22,13 +22,13 @@ module RuboCop
         MSG = 'Crystal does not support require_relative.'
         RESTRICT_ON_SEND = [:require_relative]
 
-        def on_send(node)
+        def on_send(node) # rubocop:disable InternalAffairs/OnSendWithoutOnCSend
           add_offense(node) do |corrector|
-            if node.first_argument.value.start_with?('.', '/')
-              require_value = node.first_argument.value
-            else
-              require_value = "./#{node.first_argument.value}"
-            end
+            require_value = if node.first_argument.value.start_with?('.', '/')
+                              node.first_argument.value
+                            else
+                              "./#{node.first_argument.value}"
+                            end
             corrector.replace(node, "require '#{require_value}'")
           end
         end

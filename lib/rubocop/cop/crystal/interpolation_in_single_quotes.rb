@@ -23,10 +23,10 @@ module RuboCop
           return unless node.source.start_with?("'")
           # Replace the single quotes deliminating the string with double quotes, and check if the resulting ast is still the same.
           # If it is, the string doesn't have any interpolation to avoid, and we're done here.
-          return if node == parse('"' + node.source[1..-2] + '"').ast
+          return if node == parse("\"#{node.source[1..-2]}\"").ast
 
           add_offense(node) do |corrector|
-            corrector.replace(node, '%q(' + node.source[1..-2] + ')')
+            corrector.replace(node, "%q(#{node.source[1..-2]})")
           end
         end
       end
