@@ -21,7 +21,7 @@ Lint/ImplicitStringConcatenation:
   Enabled: true
 
 Style/BlockComments:
-  Enforced: true
+  Enabled: true
 
 Style/StringLiterals:
   Enabled: true
