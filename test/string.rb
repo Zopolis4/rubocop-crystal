@@ -24,3 +24,13 @@ Test.assert_equal "#{foo}""bar", 'bar' + "bar"
 Test.assert_unequal '#{1 + 1}', '2'
 
 Test.assert_equal '#{foo}'"bar", '#{foo}bar'
+
+i = 3
+
+while i > 0 do
+  i -= 1
+end
+
+until i > 3 do
+  i += 1
+end

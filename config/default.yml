@@ -29,3 +29,6 @@ Style/MethodDefParentheses:
 Style/StringLiterals:
   Enabled: true
   EnforcedStyle: double_quotes
+
+Style/WhileUntilDo:
+  Enabled: true
