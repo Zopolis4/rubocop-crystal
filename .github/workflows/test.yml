@@ -21,6 +21,6 @@ jobs:
           gem build rubocop-crystal
           gem install rubocop-crystal
       - name: Convert test files
-        run: rubocop --require rubocop-crystal -c config/default.yml --fail-level fatal -A test
+        run: rubocop --plugin rubocop-crystal -c config/default.yml --fail-level fatal -A test
       - name: Run tests (Crystal)
         run: crystal run test/string.cr

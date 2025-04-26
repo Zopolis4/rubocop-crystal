@@ -38,7 +38,7 @@ gem install rubocop-crystal
 ## Usage
 
 ```
-rubocop --require rubocop-crystal
+rubocop --plugin rubocop-crystal
 ```
 
 Note that there are some differences between Ruby and Crystal that can be automatically resolved, while some (at least for now) require manual intervention.

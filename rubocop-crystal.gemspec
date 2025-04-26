@@ -7,8 +7,11 @@ Gem::Specification.new do |spec|
   spec.email    = 'creatorsmithmdt@gmail.com'
   spec.homepage = 'https://github.com/Zopolis4/rubocop-crystal'
 
+  spec.metadata['default_lint_roller_plugin'] = 'RuboCop::Crystal::Plugin'
+
   spec.files         = `git ls-files`.split("\n")
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'rubocop', '>= 1.65.1'
+  spec.add_dependency 'lint_roller'
+  spec.add_dependency 'rubocop', '>= 1.72.1'
 end
