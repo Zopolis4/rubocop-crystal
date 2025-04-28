@@ -1,3 +1,15 @@
+## 0.0.3 (2025-04-28)
+
+### New features
+
+* Enable Style/BlockComments cop ([@zopolis4][])
+* Enable Style/WhileUntilDo cop ([@zopolis4][])
+* Add Crystal/MethodNameStartingWithUppercaseLetter cop ([@zopolis4][])
+
+### Changes
+
+* Convert to Rubocop plugin ([@zopolis4][])
+
 ## 0.0.2 (2024-08-01)
 
 ### New features
