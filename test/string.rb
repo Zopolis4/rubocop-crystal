@@ -30,7 +30,9 @@ i = 3
 while i > 0 do
   i -= 1
 end
+Test.assert_equal 0, i
 
 until i > 3 do
   i += 1
 end
+Test.assert_equal 4, i
