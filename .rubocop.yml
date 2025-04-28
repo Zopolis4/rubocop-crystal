@@ -13,6 +13,10 @@ Gemspec/RequireMFA:
 Gemspec/RequiredRubyVersion:
   Enabled: false
 
+InternalAffairs/OnSendWithoutOnCSend:
+  Exclude:
+    - 'lib/rubocop/cop/crystal/require_relative.rb'
+
 Layout/LineLength:
   Enabled: false
 
