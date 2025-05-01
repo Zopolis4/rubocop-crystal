@@ -18,6 +18,10 @@ Crystal/MethodNameStartingWithUppercaseLetter:
   Description: 'This cop detects method names that start with uppercase letters.'
   Enabled: true
 
+Crystal/RequireAtTopLevel:
+  Description: 'This cop detects instances of require that are not at the top level.'
+  Enabled: true
+
 Crystal/RequireRelative:
   Description: 'This cop replaces require_relative with require while maintaining behavior.'
   Enabled: true
