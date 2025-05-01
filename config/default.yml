@@ -1,5 +1,10 @@
 AllCops:
   DisabledByDefault: true
+  inherit_mode:
+    merge:
+      - Include
+  Include:
+    - '**/*.cr'
 
 Crystal/FileExtension:
   Description: 'This cop renames files ending in `.rb` to `.cr`.'
