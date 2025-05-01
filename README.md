@@ -10,7 +10,7 @@ Getting static type information about Ruby files isn't the difficult part, the p
 
 Inserting Crystal types into Ruby code is a no-go, because that causes `Lint/Syntax` errors in RuboCop.
 
-Possible paths foward:
+Possible paths forward:
 - Modify the parser to accept Crystal type declarations, or at least not break on them.
 - Modify Crystal to accept type declarations from `.rbs` and/or `.rbi` files.
 - Modify Crystal to accept type declarations from sorbet/rbs-inline/other annotations.

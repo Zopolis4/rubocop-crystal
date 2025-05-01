@@ -2,7 +2,7 @@ RSpec.describe RuboCop::Cop::Crystal::MethodNameStartingWithUppercaseLetter, :co
   it 'registers an offense when the first letter of a method name is capitalized' do
     expect_offense(<<~RUBY)
       def Foo
-          ^^^ Method names must start with a lowecase letter in Crystal.
+          ^^^ Method names must start with a lowercase letter in Crystal.
         bar
       end
     RUBY
@@ -11,7 +11,7 @@ RSpec.describe RuboCop::Cop::Crystal::MethodNameStartingWithUppercaseLetter, :co
   it 'registers an offense when all the letters of a method name are capitalized' do
     expect_offense(<<~RUBY)
       def FOO
-          ^^^ Method names must start with a lowecase letter in Crystal.
+          ^^^ Method names must start with a lowercase letter in Crystal.
         bar
       end
     RUBY

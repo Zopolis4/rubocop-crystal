@@ -19,7 +19,7 @@ module RuboCop
       #   foo(bar)
       #
       class MethodNameStartingWithUppercaseLetter < Base
-        MSG = 'Method names must start with a lowecase letter in Crystal.'
+        MSG = 'Method names must start with a lowercase letter in Crystal.'
 
         def on_def(node)
           add_offense(node.loc.name) if node.method_name.to_s.chr.capitalize!.nil?

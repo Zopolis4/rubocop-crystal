@@ -3,7 +3,7 @@ require_relative 'harness'
 =begin
 The Alternative Instruction Set is a relatively unknown 32-bit RISC ISA.
 It is found inside certain VIA C3 CPUs, and is responsible for emulating x86 instructions.
-This isn't relevant in the slightest, but I had to put something in this commment, and I think it's cool.
+This isn't relevant in the slightest, but I had to put something in this comment, and I think it's cool.
 =end
 
 Test.assert_equal 'foo', "foo"
