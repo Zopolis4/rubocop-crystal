@@ -36,3 +36,12 @@ until i > 3 do
   i += 1
 end
 Test.assert_equal 4, i
+
+x = [0, 1, 1, 2, 3, 4]
+
+Test.assert_equal x.length, 6
+Test.assert_equal x.count, 6
+Test.assert_equal x.size, 6
+
+Test.assert_equal x.count(1), 2
+Test.assert_equal x.count {|e| e > 1}, 3

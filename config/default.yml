@@ -6,6 +6,10 @@ AllCops:
   Include:
     - '**/*.cr'
 
+Crystal/EnumerableSize:
+  Description: 'This cop replaces .length and .count with .size when they are used as aliases for .size'
+  Enabled: true
+
 Crystal/FileExtension:
   Description: 'This cop renames files ending in `.rb` to `.cr`.'
   Enabled: true
