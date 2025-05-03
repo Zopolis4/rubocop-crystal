@@ -25,6 +25,10 @@ Test.assert_unequal '#{1 + 1}', '2'
 
 Test.assert_equal '#{foo}'"bar", '#{foo}bar'
 
+# TODO: These tests fail when converted to Crystal due to the Char type.
+# Test.assert_equal 'a'.chars[0], "a"
+# "bbb".each_char {|c| Test.assert_equal c, 'b' }
+
 i = 3
 
 while i > 0 do
