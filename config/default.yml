@@ -6,6 +6,10 @@ AllCops:
   Include:
     - '**/*.cr'
 
+Crystal/EnumerableReduce:
+  Description: 'This cop replaces .inject with .reduce and converts reducer functions to their block counterparts.'
+  Enabled: true
+
 Crystal/EnumerableSize:
   Description: 'This cop replaces .length and .count with .size when they are used as aliases for .size'
   Enabled: true

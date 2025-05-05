@@ -1,3 +1,4 @@
+require_relative 'crystal/enumerable_reduce'
 require_relative 'crystal/enumerable_size'
 require_relative 'crystal/file_extension'
 require_relative 'crystal/interpolation_in_single_quotes'
