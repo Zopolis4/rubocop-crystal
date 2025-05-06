@@ -26,6 +26,10 @@ Crystal/MethodNameStartingWithUppercaseLetter:
   Description: 'This cop detects method names that start with uppercase letters.'
   Enabled: true
 
+Crystal/MethodReturningChar:
+  Description: 'This cop detects methods that, in Crystal, return the Char type instead of a 1-character string, and modifies them accordingly.'
+  Enabled: true
+
 Crystal/RequireAtTopLevel:
   Description: 'This cop detects instances of require that are not at the top level.'
   Enabled: true
