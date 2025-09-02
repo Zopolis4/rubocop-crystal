@@ -19,6 +19,7 @@ module RuboCop
       #
       class MethodReturningChar < Base
         extend AutoCorrector
+
         MSG = 'In Crystal, this method returns the Char type instead of a 1-character string.'
         RESTRICT_ON_SEND = %i[chars each_char]
 

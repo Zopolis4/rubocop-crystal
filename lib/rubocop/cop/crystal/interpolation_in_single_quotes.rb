@@ -16,6 +16,7 @@ module RuboCop
       #
       class InterpolationInSingleQuotes < Base
         extend AutoCorrector
+
         MSG = 'Crystal does not support the use of single-quote deliminated strings to avoid interpolation.'
 
         def on_str(node)

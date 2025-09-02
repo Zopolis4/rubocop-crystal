@@ -19,6 +19,7 @@ module RuboCop
       #
       class RequireRelative < Base
         extend AutoCorrector
+
         MSG = 'Crystal does not support require_relative.'
         RESTRICT_ON_SEND = [:require_relative]
 

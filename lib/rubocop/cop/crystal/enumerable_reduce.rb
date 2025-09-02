@@ -24,6 +24,7 @@ module RuboCop
       #
       class EnumerableReduce < Base
         extend AutoCorrector
+
         MSG = 'Crystal has .reduce instead of .inject'
         RESTRICT_ON_SEND = %i[inject reduce]
 

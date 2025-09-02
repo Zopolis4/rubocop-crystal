@@ -13,6 +13,7 @@ module RuboCop
       #
       class EnumerableSize < Base
         extend AutoCorrector
+
         MSG = 'Crystal does not have the .length or .count methods as aliases to .size'
         RESTRICT_ON_SEND = %i[count length]
 

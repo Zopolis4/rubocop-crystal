@@ -13,6 +13,7 @@ module RuboCop
       #
       class FileExtension < Base
         extend AutoCorrector
+
         MSG = 'Crystal files have `.cr` extensions, while Ruby files have `.rb` extensions.'
 
         def on_new_investigation
