@@ -18,6 +18,10 @@ Crystal/FileExtension:
   Description: 'This cop renames files ending in `.rb` to `.cr`.'
   Enabled: true
 
+Crystal/FileReadLines:
+  Description: "This cop replaces Ruby's IO.readlines with Crystal's File.read_lines or IO.each_line."
+  Enabled: true
+
 Crystal/InterpolationInSingleQuotes:
   Description: "This cop uses %q in place of ' if the enclosed string would be affected by interpolation."
   Enabled: true

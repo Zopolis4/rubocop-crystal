@@ -1,6 +1,7 @@
 require_relative 'crystal/enumerable_reduce'
 require_relative 'crystal/enumerable_size'
 require_relative 'crystal/file_extension'
+require_relative 'crystal/file_read_lines'
 require_relative 'crystal/interpolation_in_single_quotes'
 require_relative 'crystal/method_name_starting_with_uppercase_letter'
 require_relative 'crystal/method_returning_char'
