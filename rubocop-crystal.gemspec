@@ -1,7 +1,7 @@
 Gem::Specification.new do |spec|
   spec.name     = 'rubocop-crystal'
   spec.summary  = 'A RuboCop extension for converting Ruby to Crystal.'
-  spec.version  = '0.0.3'
+  spec.version  = '0.0.4'
   spec.license  = 'GPL-3.0-or-later'
   spec.author   = 'Zopolis4'
   spec.email    = 'creatorsmithmdt@gmail.com'

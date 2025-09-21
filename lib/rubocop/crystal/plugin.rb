@@ -6,7 +6,7 @@ module RuboCop
       def about
         LintRoller::About.new(
           name: 'rubocop-crystal',
-          version: '0.0.3',
+          version: '0.0.4',
           homepage: 'https://github.com/Zopolis4/rubocop-crystal',
           description: 'A RuboCop extension for converting Ruby to Crystal.'
         )

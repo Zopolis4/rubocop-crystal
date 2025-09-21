@@ -1,3 +1,17 @@
+## 0.0.4 (2025-09-21)
+
+### New features
+
+* Add Crystal/EnumerableReduce cop ([@zopolis4][])
+* Add Crystal/EnumerableSize cop ([@zopolis4][])
+* Add Crystal/FileReadLines cop ([@zopolis4][])
+* Add Crystal/MethodReturningChar cop ([@zopolis4][])
+* Add Crystal/RequireAtTopLevel cop ([@zopolis4][])
+
+### Changes
+
+* Add files ending in .cr to the list of files to be checked in the default config ([@zopolis4][])
+
 ## 0.0.3 (2025-04-28)
 
 ### New features
