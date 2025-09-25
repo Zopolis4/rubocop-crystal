@@ -6,6 +6,8 @@ jobs:
     steps:
       - name: Download source
         uses: actions/checkout@v4
+      - name: Install Crystal
+        uses: crystal-lang/install-crystal@v1
       - name: Install Ruby
         uses: ruby/setup-ruby@v1
         with:

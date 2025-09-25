@@ -27,6 +27,10 @@ Metrics:
 Naming/FileName:
   Enabled: false
 
+Security/Eval:
+  Exclude:
+    - 'lib/rubocop/rspec/expect_match_crystal.rb'
+
 Style/Documentation:
   Enabled: False
 

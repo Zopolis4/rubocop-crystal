@@ -1,5 +1,9 @@
 require 'rubocop-crystal'
 require 'rubocop/rspec/support'
+require_relative '../lib/rubocop/rspec/expect_match_crystal'
+
+# Crystal is required to run the specs.
+raise 'Unable to find a crystal executable!' if system('crystal', out: File::NULL).nil?
 
 RSpec.configure do |config|
   config.disable_monkey_patching!
