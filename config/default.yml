@@ -42,6 +42,10 @@ Crystal/RequireRelative:
   Description: 'This cop replaces require_relative with require while maintaining behavior.'
   Enabled: true
 
+Crystal/SafeNavigation:
+  Description: "This cop replaces Ruby's &. safe navigation syntax with Crystal's .try &. safe navigation syntax"
+  Enabled: true
+
 Lint/ImplicitStringConcatenation:
   Enabled: true
 
