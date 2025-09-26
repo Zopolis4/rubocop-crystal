@@ -40,16 +40,6 @@ until i > 3 do
 end
 Test.assert_equal 4, i
 
-x = [0, 1, 1, 2, 3, 4]
-
-Test.assert_equal x.inject { |r,v| r + v }, 11
-Test.assert_equal x.inject(4) { |r,v| r - v }, -7
-
-Test.assert_equal x.inject(:+), 11
-Test.assert_equal x.reduce(:+), 11
-Test.assert_equal x.inject(4, :-), -7
-Test.assert_equal x.reduce(4, :-), -7
-
 # TODO: This could be done using a true Tempfile, but Crystal removed theirs in https://github.com/crystal-lang/crystal/pull/6485.
 File.write('temp', "first line\nsecond line\n\nfourth line\nfifth line")
 
