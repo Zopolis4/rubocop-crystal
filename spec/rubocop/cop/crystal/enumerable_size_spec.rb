@@ -8,6 +8,8 @@ RSpec.describe RuboCop::Cop::Crystal::EnumerableSize, :config do
     expect_correction(<<~RUBY)
       x.size
     RUBY
+
+    expect_match_crystal('x = [1, 0, 0]')
   end
 
   it 'registers an offense when &.length is used' do
@@ -30,12 +32,16 @@ RSpec.describe RuboCop::Cop::Crystal::EnumerableSize, :config do
     expect_correction(<<~RUBY)
       x.size
     RUBY
+
+    expect_match_crystal('x = [0, 8, 4]')
   end
 
   it 'does not register an offense when .count is used with an argument and no block' do
     expect_no_offenses(<<~RUBY)
       x.count(y)
     RUBY
+
+    expect_match_crystal('x = [1, 0, 1]', 'y = 1')
   end
 
   it 'does not register an offense when &.count is used with an argument and no block' do
@@ -48,6 +54,8 @@ RSpec.describe RuboCop::Cop::Crystal::EnumerableSize, :config do
     expect_no_offenses(<<~RUBY)
       x.count {|e| e > 2 }
     RUBY
+
+    expect_match_crystal('x = [3, 4, 7]')
   end
 
   it 'does not register an offense when .count is used with an argument and a block' do

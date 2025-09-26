@@ -42,13 +42,6 @@ Test.assert_equal 4, i
 
 x = [0, 1, 1, 2, 3, 4]
 
-Test.assert_equal x.length, 6
-Test.assert_equal x.count, 6
-Test.assert_equal x.size, 6
-
-Test.assert_equal x.count(1), 2
-Test.assert_equal x.count {|e| e > 1}, 3
-
 Test.assert_equal x.inject { |r,v| r + v }, 11
 Test.assert_equal x.inject(4) { |r,v| r - v }, -7
 
