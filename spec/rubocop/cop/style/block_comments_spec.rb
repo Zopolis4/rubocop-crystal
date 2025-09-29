@@ -15,6 +15,6 @@ RSpec.describe RuboCop::Cop::Style::BlockComments, :config do
       # This isn't relevant in the slightest, but I had to put something in this comment, and I think it's cool.
     RUBY
 
-    expect_match_crystal
+    expect_match_crystal(syntax_only: true)
   end
 end

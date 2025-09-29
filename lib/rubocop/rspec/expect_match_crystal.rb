@@ -27,7 +27,7 @@ module RuboCop
       # Tests that the output of the original Ruby source is the same as the output of the corrected Crystal source.
       # A variable replacement must be passed in, in the form 'foo = 42' to replace the 'foo' in the testcase with 42.
       # Note that the arguments and syntax for passing in a replacement should not be considered stable, and may evolve as this is applied throughout the codebase.
-      def expect_match_crystal(*replacements)
+      def expect_match_crystal(*replacements, syntax_only: false)
         raise '`expect_match_crystal` must follow either `expect_correction` or `expect_no_offenses`' if @ruby_source.nil? || @crystal_source.nil?
 
         ruby_source = @ruby_source
@@ -40,9 +40,17 @@ module RuboCop
           crystal_source.sub!(replacement[0], replacement[1])
         end
 
+        # In ruby, we have the luxury of automatically getting the result of the evaluated source.
+        # In crystal, we print out the last line of the source and capture the result.
+        unless syntax_only
+          crystal_source_lines = crystal_source.lines
+          crystal_source_lines.insert(crystal_source_lines.size - 1, 'print ')
+          crystal_source = crystal_source_lines.join
+        end
+
         # It's easier to convert the ruby result into a string than to convert the crystal result back to the (unknown) original type.
         ruby_result = eval(ruby_source).to_s
-        crystal_result = `crystal eval 'puts #{crystal_source}'`.chomp
+        crystal_result = `crystal eval '#{crystal_source}'`
 
         expect(crystal_result).to eq(ruby_result)
       end

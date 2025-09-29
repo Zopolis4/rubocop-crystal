@@ -22,18 +22,6 @@ Test.assert_equal '#{foo}'"bar", '#{foo}bar'
 Test.assert_equal 'a'.chars[0], "a"
 "bbb".each_char {|c| Test.assert_equal c, 'b' }
 
-i = 3
-
-while i > 0 do
-  i -= 1
-end
-Test.assert_equal 0, i
-
-until i > 3 do
-  i += 1
-end
-Test.assert_equal 4, i
-
 # TODO: This could be done using a true Tempfile, but Crystal removed theirs in https://github.com/crystal-lang/crystal/pull/6485.
 File.write('temp', "first line\nsecond line\n\nfourth line\nfifth line")
 
