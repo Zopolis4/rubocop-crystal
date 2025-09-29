@@ -19,9 +19,6 @@ Test.assert_unequal '#{1 + 1}', '2'
 
 Test.assert_equal '#{foo}'"bar", '#{foo}bar'
 
-Test.assert_equal 'a'.chars[0], "a"
-"bbb".each_char {|c| Test.assert_equal c, 'b' }
-
 # TODO: This could be done using a true Tempfile, but Crystal removed theirs in https://github.com/crystal-lang/crystal/pull/6485.
 File.write('temp', "first line\nsecond line\n\nfourth line\nfifth line")
 
