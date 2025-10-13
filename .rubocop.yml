@@ -13,6 +13,10 @@ Gemspec/RequireMFA:
 Gemspec/RequiredRubyVersion:
   Enabled: false
 
+InternalAffairs/NumblockHandler:
+  Exclude:
+    - 'lib/rubocop/cop/crystal/keyword_block_parameter.rb'
+
 InternalAffairs/OnSendWithoutOnCSend:
   Exclude:
     - 'lib/rubocop/cop/crystal/require_at_top_level.rb'

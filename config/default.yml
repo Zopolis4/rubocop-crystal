@@ -26,6 +26,10 @@ Crystal/InterpolationInSingleQuotes:
   Description: "This cop uses %q in place of ' if the enclosed string would be affected by interpolation."
   Enabled: true
 
+Crystal/KeywordBlockParameter:
+  Description: 'This cop renames block parameters that would otherwise clash with Crystal keywords.'
+  Enabled: true
+
 Crystal/MethodNameStartingWithUppercaseLetter:
   Description: 'This cop detects method names that start with uppercase letters.'
   Enabled: true
