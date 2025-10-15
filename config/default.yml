@@ -59,6 +59,9 @@ Style/BlockComments:
 Style/MethodDefParentheses:
   Enabled: true
 
+Style/MultilineIfThen:
+  Enabled: true
+
 Style/StringLiterals:
   Enabled: true
   EnforcedStyle: double_quotes
