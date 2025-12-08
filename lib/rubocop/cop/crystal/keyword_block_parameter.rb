@@ -20,7 +20,7 @@ module RuboCop
         CRYSTAL_KEYWORDS = %i[begin nil true false yield with abstract def macro require case select if unless include extend class struct module enum while until return next break lib fun alias pointerof sizeof instance_sizeof offsetof typeof private protected asm out end self in]
 
         def on_block(node)
-          node.arguments.each do |argument|
+          node.arguments.flat_map { |argument| argument.respond_to?(:assignments) ? argument.assignments : argument }.each do |argument|
             next unless CRYSTAL_KEYWORDS.include?(argument.name)
 
             add_offense(argument) do |corrector|

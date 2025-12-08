@@ -23,6 +23,29 @@ RSpec.describe RuboCop::Cop::Crystal::KeywordBlockParameter, :config do
     RUBY
   end
 
+  it 'registers an offense when a Crystal keyword is used as block parameter name via multiple assignment' do
+    expect_offense(<<~RUBY)
+      foo { |(lib, bar)| puts lib; puts bar }
+              ^^^ Crystal does not allow keywords as block parameter names.
+    RUBY
+
+    expect_correction(<<~RUBY)
+      foo { |(chatoyant_lib, bar)| puts chatoyant_lib; puts bar }
+    RUBY
+  end
+
+  it 'registers an offense when multiple Crystal keywords are used as block parameter names via multiple assignment' do
+    expect_offense(<<~RUBY)
+      foo { |(lib, fun)| puts lib; puts fun }
+                   ^^^ Crystal does not allow keywords as block parameter names.
+              ^^^ Crystal does not allow keywords as block parameter names.
+    RUBY
+
+    expect_correction(<<~RUBY)
+      foo { |(chatoyant_lib, chatoyant_fun)| puts chatoyant_lib; puts chatoyant_fun }
+    RUBY
+  end
+
   it 'registers an offense when multiple Crystal keywords are used as block parameter names' do
     expect_offense(<<~RUBY)
       foo { |lib, fun| puts lib; puts fun }
