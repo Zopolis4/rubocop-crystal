@@ -19,7 +19,7 @@ module RuboCop
 
         # @!method crystal_safe_navigation?(node)
         def_node_matcher :crystal_safe_navigation?, <<~PATTERN
-          (csend (send `({send nil? | lvar | ivar | cvar} _) :try) _)
+          (csend `(send _ :try) ...)
         PATTERN
 
         def on_csend(node)

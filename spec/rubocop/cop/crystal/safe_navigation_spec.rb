@@ -79,6 +79,54 @@ RSpec.describe RuboCop::Cop::Crystal::SafeNavigation, :config do
     RUBY
   end
 
+  it 'registers an offense when using safe navigation on self' do
+    expect_offense(<<~RUBY)
+      self&.nil?
+          ^^ Crystal has .try &. instead of &. for safe navigation.
+    RUBY
+
+    expect_correction(<<~RUBY)
+      self.try &.nil?
+    RUBY
+  end
+
+  it 'registers an offense when using safe navigation on nil' do
+    expect_offense(<<~RUBY)
+      nil&.nil?
+         ^^ Crystal has .try &. instead of &. for safe navigation.
+    RUBY
+
+    expect_correction(<<~RUBY)
+      nil.try &.nil?
+    RUBY
+
+    expect_match_crystal
+  end
+
+  it 'registers an offense when using safe navigation on complex nil' do
+    expect_offense(<<~RUBY)
+      nil&.unknown(obj.m) { obj.m }
+         ^^ Crystal has .try &. instead of &. for safe navigation.
+    RUBY
+
+    expect_correction(<<~RUBY)
+      nil.try &.unknown(obj.m) { obj.m }
+    RUBY
+  end
+
+  it 'registers an offense when using safe navigation on an array index' do
+    expect_offense(<<~RUBY)
+      [1, 2, 3][0]&.nil?
+                  ^^ Crystal has .try &. instead of &. for safe navigation.
+    RUBY
+
+    expect_correction(<<~RUBY)
+      [1, 2, 3][0].try &.nil?
+    RUBY
+
+    expect_match_crystal
+  end
+
   it 'does not register an offense when not using safe navigation' do
     expect_no_offenses(<<~RUBY)
       x.even?
