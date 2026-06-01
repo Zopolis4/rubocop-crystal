@@ -13,6 +13,10 @@ Gemspec/RequireMFA:
 Gemspec/RequiredRubyVersion:
   Enabled: false
 
+InternalAffairs/ItblockHandler:
+  Exclude:
+    - 'lib/rubocop/cop/crystal/keyword_block_parameter.rb'
+
 InternalAffairs/NumblockHandler:
   Exclude:
     - 'lib/rubocop/cop/crystal/keyword_block_parameter.rb'
@@ -34,6 +38,9 @@ Naming/FileName:
 Security/Eval:
   Exclude:
     - 'lib/rubocop/rspec/expect_match_crystal.rb'
+
+Style/OneClassPerFile:
+  Enabled: False
 
 Style/Documentation:
   Enabled: False
