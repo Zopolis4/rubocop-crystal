@@ -25,15 +25,15 @@ module RuboCop
 
         # @!method map_to_s?(node)
         def_node_matcher :map_to_s?, <<~PATTERN
-          (block (send (call (...) :chars) :map) (args (arg :c)) (send (lvar :c) :to_s))
+          (block (send (call (...) {:chars | :each_char}) :map) (args (arg :c)) (send (lvar :c) :to_s))
         PATTERN
 
         def on_send(node)
-          if node.method?(:chars) && !map_to_s?(node.parent&.parent)
+          if (node.method?(:chars) || (node.method?(:each_char) && !node.parent.block_type?)) && !map_to_s?(node.parent&.parent)
             add_offense(node.selector) do |corrector|
               corrector.insert_after(node.selector, '.map { |c| c.to_s }')
             end
-          elsif node.method?(:each_char)
+          elsif node.method?(:each_char) && node.parent.block_type?
             nodes_to_correct = []
             node.parent.body.each_descendant do |n|
               # If a node is an lvar with the same name as the character argument and it does not have a .to_s, it needs to be corrected.

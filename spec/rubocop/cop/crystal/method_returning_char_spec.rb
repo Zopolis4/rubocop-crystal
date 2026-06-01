@@ -64,6 +64,19 @@ RSpec.describe RuboCop::Cop::Crystal::MethodReturningChar, :config do
     expect_match_crystal
   end
 
+  it 'registers an offense when .each_char is used without a block and without converting the character to a string' do
+    expect_offense(<<~RUBY)
+      x.each_char.to_a
+        ^^^^^^^^^ In Crystal, this method returns the Char type instead of a 1-character string.
+    RUBY
+
+    expect_correction(<<~RUBY)
+      x.each_char.map { |c| c.to_s }.to_a
+    RUBY
+
+    expect_match_crystal('x = "foo"')
+  end
+
   it 'registers an offense when .each_char is used without converting the character to a string' do
     expect_offense(<<~RUBY)
       y = ["foo", "bar"]
