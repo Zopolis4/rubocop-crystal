@@ -43,6 +43,14 @@ RSpec.describe RuboCop::Cop::Crystal::RequireRelative, :config do
     RUBY
   end
 
+  # This isn't working crystal code, but the problem is outside the scope of this cop.
+  # TODO: Create a cop to handle non-string literal requires.
+  it 'does not register an offense when requiring a variable' do
+    expect_no_offenses(<<~RUBY)
+      require_relative var
+    RUBY
+  end
+
   it 'does not register an offense on non-relative requires' do
     expect_no_offenses(<<~RUBY)
       require '../foo'
