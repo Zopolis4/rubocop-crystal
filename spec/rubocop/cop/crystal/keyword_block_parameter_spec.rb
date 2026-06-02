@@ -12,6 +12,31 @@ RSpec.describe RuboCop::Cop::Crystal::KeywordBlockParameter, :config do
     expect_match_crystal('x = [0]')
   end
 
+  it 'registers an offense when a Crystal keyword is used as an array argument to a block' do
+    expect_offense(<<~RUBY)
+      x.any? { |*lib| lib.first.even? }
+                 ^^^ Crystal does not allow keywords as block parameter names.
+    RUBY
+
+    expect_correction(<<~RUBY)
+      x.any? { |*chatoyant_lib| chatoyant_lib.first.even? }
+    RUBY
+
+    expect_match_crystal('x = [0]')
+  end
+
+  it 'registers an offense when a Crystal keyword is used as a splat argument to a block' do
+    expect_offense(<<~RUBY)
+      x.any? { |lib, **fun| lib.even? || fun.first.nil? }
+                ^^^ Crystal does not allow keywords as block parameter names.
+                       ^^^ Crystal does not allow keywords as block parameter names.
+    RUBY
+
+    expect_correction(<<~RUBY)
+      x.any? { |chatoyant_lib, **chatoyant_fun| chatoyant_lib.even? || chatoyant_fun.first.nil? }
+    RUBY
+  end
+
   it 'registers an offense when a Crystal keyword is used as a block parameter name for a block with multiple parameters' do
     expect_offense(<<~RUBY)
       x.each { |asm, car| asm.to_s.empty? && car.odd? }
@@ -61,6 +86,12 @@ RSpec.describe RuboCop::Cop::Crystal::KeywordBlockParameter, :config do
   it 'does not register an offense when a non-keyword is used as a block parameter name' do
     expect_no_offenses(<<~RUBY)
       foo { |car| puts car }
+    RUBY
+  end
+
+  it 'does not register an offense when a non-keyword containing a keyword is used as a block parameter name' do
+    expect_no_offenses(<<~RUBY)
+      foo { |beginning| puts beginning }
     RUBY
   end
 
