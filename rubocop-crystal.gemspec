@@ -14,5 +14,5 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'lint_roller'
   # TODO: Rubocop 1.88.2 broke Crystal/FileExtension (Probably with https://github.com/rubocop/rubocop/commit/e161fe6c43d354168d6f6ad82e44d25132981f39), so just don't accept that version until functionality is restored.
-  spec.add_dependency 'rubocop', '>= 1.80.2', '<= 1.88.1'
+  spec.add_dependency 'rubocop', '>= 1.88.0', '<= 1.88.1'
 end
